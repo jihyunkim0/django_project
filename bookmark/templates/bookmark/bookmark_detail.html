@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+<div class="detail">
+{{object.site_name}}<br>
+{{object.url}}
+</div>
+<br>
+<div>
+<a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a>
+<a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a>
+</div>
+{% endblock %}

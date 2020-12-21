@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for post in posts %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+<div class="post">
+    <div class="date">
+    <p>published:{{post.published_date}}</p>
+    </div>
+    <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1> <!-- '='할 때 띄어쓰기 하면 안 됨-->
+    <p>{{post.text|linebreaksbr}}</p>
+</div>
+{% endfor %}
+{% endblock %}}
